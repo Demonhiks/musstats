@@ -1,6 +1,6 @@
 import type { Stats } from '../types';
 import { Card, CardHead, Empty, Progress, Stat } from './ui';
-import { AreaChart, bucket } from './charts';
+import { AreaChart, Bars, bucket } from './charts';
 import {
   formatDate,
   formatDuration,
@@ -49,7 +49,15 @@ export function OverviewView({ stats, label }: { stats: Stats; label: string }) 
 
       <Card>
         <CardHead action={<span className="muted small">{granularity}</span>}>Динамика</CardHead>
-        <AreaChart values={series} label="График прослушиваний" />
+        {stats.byDay.length <= 21 ? (
+          <Bars
+            values={stats.byDay.map((day) => day.plays)}
+            labels={stats.byDay.map((day) => String(new Date(day.ts).getDate()))}
+            formatValue={(value) => `${value} прослушиваний`}
+          />
+        ) : (
+          <AreaChart values={series} label="График прослушиваний" />
+        )}
         <div className="chart-foot">
           <span>{relativeDay(stats.firstTs)}</span>
           <span>в среднем {formatNumber(stats.perActiveDay)} в день</span>

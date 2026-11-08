@@ -87,6 +87,13 @@ export async function saveDataset(dataset: Dataset | null): Promise<void> {
     await writeRaw(null);
     return;
   }
+
+  // Просим браузер не выселять хранилище: на iOS это снижает шанс потерять историю.
+  try {
+    await navigator.storage?.persist?.();
+  } catch {
+    /* не критично, если браузер отказал */
+  }
   const rows: PlayRow[] = dataset.plays.map((play) => [
     play.title,
     play.artist,

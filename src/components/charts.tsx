@@ -94,7 +94,7 @@ export function Bars({
         return (
           <div className="bars__col" key={index} title={`${labels?.[index] ?? index}: ${formatValue ? formatValue(value) : value}`}>
             <div className={`bars__track ${active ? 'is-active' : ''}`}>
-              <div className="bars__bar" style={{ height: `${Math.max(3, (value / max) * 100)}%` }} />
+              <div className="bars__bar" style={{ height: `${Math.max(4, (value / max) * 88)}%` }} />
             </div>
             {labels ? <span className="bars__label">{labels[index]}</span> : null}
           </div>

@@ -7,7 +7,7 @@
  */
 
 import { spawn } from 'node:child_process';
-import { mkdtempSync, writeFileSync } from 'node:fs';
+import { mkdirSync, mkdtempSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { setTimeout as sleep } from 'node:timers/promises';
@@ -29,7 +29,9 @@ const height = Number(args.height ?? 932);
 const wait = Number(args.wait ?? 900);
 const expression = args.eval ?? '';
 
-const profile = mkdtempSync(join(tmpdir(), 'edge-ms-'));
+// --profile=<dir> переиспользует профиль (нужно, чтобы проверить сохранение данных между запусками).
+const profile = args.profile ?? mkdtempSync(join(tmpdir(), 'edge-ms-'));
+mkdirSync(profile, { recursive: true });
 
 const browser = spawn(
   EDGE,

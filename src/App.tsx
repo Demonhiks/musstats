@@ -138,7 +138,7 @@ export default function App() {
             : 'Все эти прослушивания уже были в базе',
         );
         const monthAgo = Date.now() - 30 * 86_400_000;
-        if (merged.some((play) => play.ts >= monthAgo)) setPeriod('30d');
+        setPeriod(merged.some((play) => play.ts >= monthAgo) ? '30d' : 'all');
       } catch (error) {
         setImportMessage(error instanceof Error ? error.message : 'Что-то пошло не так при разборе файла');
       } finally {
