@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.shots/
+.DS_Store
+*.local
+.vite/
+
+# иконки генерируются скриптом при сборке (tools/make-icons.mjs)
+public/icons/

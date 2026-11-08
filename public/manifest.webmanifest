@@ -1,0 +1,35 @@
+{
+  "name": "MusStats — статистика прослушиваний",
+  "short_name": "MusStats",
+  "description": "Личная статистика музыки: часы прослушивания, топ-артисты, календарь активности и карточка «итоги года». Все данные остаются на устройстве.",
+  "lang": "ru",
+  "dir": "ltr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui"],
+  "orientation": "portrait",
+  "background_color": "#08080B",
+  "theme_color": "#08080B",
+  "categories": ["music", "entertainment", "utilities"],
+  "icons": [
+    {
+      "src": "./icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icons/icon-512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

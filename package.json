@@ -1,0 +1,26 @@
+{
+  "name": "musstats",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Локальная статистика прослушиваний: импорт истории Яндекс Музыки, Last.fm, Spotify. PWA для iPhone.",
+  "scripts": {
+    "dev": "node tools/make-icons.mjs && vite",
+    "build": "node tools/make-icons.mjs && tsc --noEmit && vite build",
+    "preview": "vite preview --port 4173",
+    "icons": "node tools/make-icons.mjs",
+    "test": "node tools/test-parser.mjs"
+  },
+  "dependencies": {
+    "fflate": "^0.8.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.11"
+  }
+}
